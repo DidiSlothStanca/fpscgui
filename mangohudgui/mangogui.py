@@ -126,7 +126,38 @@ class MangoHudGUI(tk.Tk):
         ttk.Combobox(button_frame, textvariable=self.fps_var, values=fps_options).pack(side=tk.LEFT, padx=5)
         
         # Tab Main
-        elements = ['time', 'version', 'gpu_stats', 'gpu_temp', 'cpu_stats', 'cpu_temp', 'core_load', 'io_stats', 'vram', 'ram', 'swap', 'procmem', 'battery', 'fps', 'frametime', 'frame_timing', 'gamemode', 'vkbasalt', 'resolution']
+        elements = [
+            'time', 'version', 'gpu_stats', 'gpu_temp', 'cpu_stats', 'cpu_temp', 
+            'core_load', 'io_stats', 'vram', 'ram', 'swap', 'procmem', 'battery', 
+            'fps', 'frametime', 'frame_timing', 'gamemode', 'vkbasalt', 'resolution',
+            'gpu_core_clock', 'gpu_mem_clock', 'gpu_power', 'gpu_load_change',
+            'cpu_power', 'cpu_mhz', 'cpu_load_change', 'histogram', 'engine_version',
+            'gpu_name', 'vulkan_driver', 'wine', 'arch'
+        ]
+        
+        # Add load value entries
+        load_frame = tk.Frame(main_scrollable)
+        load_frame.pack(pady=5, fill=tk.X)
+        
+        tk.Label(load_frame, text='GPU Load Threshold:').pack(side=tk.LEFT)
+        self.gpu_load_value = tk.StringVar(value=self.config.get('gpu_load_value', '60,90'))
+        tk.Entry(load_frame, textvariable=self.gpu_load_value, width=10).pack(side=tk.LEFT, padx=5)
+        
+        tk.Label(load_frame, text='CPU Load Threshold:').pack(side=tk.LEFT)
+        self.cpu_load_value = tk.StringVar(value=self.config.get('cpu_load_value', '60,90'))
+        tk.Entry(load_frame, textvariable=self.cpu_load_value, width=10).pack(side=tk.LEFT, padx=5)
+        
+        # Add text entries
+        text_frame = tk.Frame(main_scrollable)
+        text_frame.pack(pady=5, fill=tk.X)
+        
+        tk.Label(text_frame, text='GPU Text:').pack(side=tk.LEFT)
+        self.gpu_text = tk.StringVar(value=self.config.get('gpu_text', 'GPU'))
+        tk.Entry(text_frame, textvariable=self.gpu_text, width=10).pack(side=tk.LEFT, padx=5)
+        
+        tk.Label(text_frame, text='CPU Text:').pack(side=tk.LEFT)
+        self.cpu_text = tk.StringVar(value=self.config.get('cpu_text', 'CPU'))
+        tk.Entry(text_frame, textvariable=self.cpu_text, width=10).pack(side=tk.LEFT, padx=5)
         
         for element in elements:
             var = tk.BooleanVar(value=self.config.get(element, '0') == '1')
@@ -168,6 +199,13 @@ class MangoHudGUI(tk.Tk):
         lines = []
         for element, var in self.check_buttons.items():
             lines.append(f'{element}={1 if var.get() else 0}\n')
+        
+        # Add load values and text entries
+        lines.append(f'gpu_load_value={self.gpu_load_value.get()}\n')
+        lines.append(f'cpu_load_value={self.cpu_load_value.get()}\n')
+        lines.append(f'gpu_text={self.gpu_text.get()}\n')
+        lines.append(f'cpu_text={self.cpu_text.get()}\n')
+        
         lines.append(f'font_size={self.font_size_var.get()}\n')
         lines.append(f'background_alpha={self.bg_alpha_var.get()}\n')
         lines.append(f'position={self.position_var.get()}\n')
