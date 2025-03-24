@@ -1,6 +1,9 @@
 # fpscgui
 FPSCGUI (FPS Counter GUI) is a Python-based application designed to help users easily utilize MangoHud &amp; GalliumHud
-
+---
+## Screenshot
+![Screenshot WLM](./FPSCGUI/01.png)
+---
 # What is FPSCGUI?
 FPSCGUI (FPS Counter GUI) is a Python-based application designed to help users easily utilize MangoHud & GalliumHud.
 MangoHud & GalliumHud are tools used to display resource usage in games, videos, and other applications running on OpenGL or Vulkan in a terminal.
