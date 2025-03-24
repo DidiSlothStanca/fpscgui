@@ -1,12 +1,18 @@
 # fpscgui
 FPSCGUI (FPS Counter GUI) is a Python-based application designed to help users easily utilize MangoHud &amp; GalliumHud
 ---
-## Screenshot
+## FPSCGUI
 ![Screenshot WLM](./FPSCGUI/01.png)
 ---
 # What is FPSCGUI?
 FPSCGUI (FPS Counter GUI) is a Python-based application designed to help users easily utilize MangoHud & GalliumHud.
 MangoHud & GalliumHud are tools used to display resource usage in games, videos, and other applications running on OpenGL or Vulkan in a terminal.
+## GalliumHUD
+![Screenshot WLM](./FPSCGUI/07.png)
+---
+## MangoHUD
+![Screenshot WLM](./FPSCGUI/08.png)
+---
 
 # What should be noted?
 1. Ensure that you have installed MangoHud, mangohud:i386 (if available), and mesa-utils or mesa-demos (depending on your distro).
@@ -45,8 +51,10 @@ $ tar -xf fpscgui.tar.gz -C ~/
 $ cd ~/.fpscgui
 $ ./fpscgui.sh
 ```
-
-# Gallium FPS Tab
+## Gallium HUD Manager
+![Screenshot WLM](./FPSCGUI/02.png)
+---
+# Gallium FPS Tab (Galliumhud HUD Manager)
 1. **Executable List:** Displays a list of added executable applications.
 2. **Create File:** Adds application shortcuts to the list (supports AppImage, .sh files) & (for .exe files, Wine must be installed first).
 3. **Remove:** Deletes selected list items and shortcut files.
@@ -56,8 +64,13 @@ $ ./fpscgui.sh
 7. **Play:** Runs the selected shortcut from the list.
 8. **Exit:** Closes Gallium FPS.
 
-# Mangohud FPS Tab (Always save after configuring everything)
-### Play Tab
+# Mangohud FPS Tab (MangoHud GUI Configurator)
+### Note: Always save after configuring everything
+---
+## Play Tab
+![Screenshot WLM](./FPSCGUI/03.png)
+---
+### Description:
 1. **Box:** Displays a list of added executable applications.
 2. **Create File:** Adds application shortcuts to the list (supports AppImage, .sh files) & (for .exe files, Wine must be installed first).
 3. **Remove:** Deletes selected list items and shortcut files.
@@ -68,12 +81,18 @@ $ ./fpscgui.sh
    - **MangoGL:** MangoHud OpenGL
 
 ## Main Tab
+![Screenshot WLM](./FPSCGUI/04.png)
+---
+### Description:
 1. **Checkbox:** Enables resource monitoring as per the checkbox name.
 2. **Font Size:** Adjusts font size.
 3. **Background Alpha:** Adjusts the MangoHud background transparency.
 4. **HUD Position:** Sets the HUD position when running in a game or application.
 
 ### Color Font Tab
+![Screenshot WLM](./FPSCGUI/05.png)
+---
+### Description:
 1. All options are for adjusting colors.
 
 ### Bottom Section
